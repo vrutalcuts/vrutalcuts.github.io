@@ -1,38 +1,112 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>whyudontcallme</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
+<html lang="ru"><head><style>body {transition: opacity ease-in 0.2s; } 
+body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relative; } 
+</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="vrutalcuts">
+    <meta name="keywords" content="bio link, social media, vrutalcuts">
+    <title>vrutalcuts?</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;900&amp;family=Crimson+Pro:wght@300;400;500;600&amp;family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+<style>
+    .custom-cursor {
+        width: 12px;
+        height: 12px;
+        border: 2px solid rgba(255, 255, 255, 0.9);
+        border-radius: 50%;
+        position: fixed;
+        pointer-events: none;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+        mix-blend-mode: difference;
+        background: rgba(255, 255, 255, 0.1);
+        transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    
+    .cursor-trail {
+        width: 40px;
+        height: 40px;
+        border: 2px solid rgba(255, 255, 255, 0.4);
+        border-radius: 50%;
+        position: fixed;
+        pointer-events: none;
+        z-index: 9998;
+        transform: translate(-50%, -50%);
+        mix-blend-mode: difference;
+        transition: opacity 0.2s ease, transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+    }
+    
     body {
-      background: #0d0d0d;
-      color: #fff;
-      font-family: monospace;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+        cursor: none;
     }
-    .card {
-      text-align: center;
+    
+    /* Hide custom cursor (dot) when hovering interactive elements */
+    .custom-cursor.hidden {
+        opacity: 0;
     }
-    a {
-      display: block;
-      color: #8fff8f;
-      text-decoration: none;
-      margin-top: 10px;
+    
+    /* Ring (trail) stays visible but scales up */
+    .cursor-trail.hover {
+        transform: translate(-50%, -50%) scale(1.5);
+        border-color: rgba(255, 255, 255, 0.8);
+        background: rgba(255, 255, 255, 0.05);
     }
-  </style>
-</head>
-<body>
-  <div class="card">
-    <h1>yourname</h1>
-    <p>developer / whatever</p>
+</style></head>
 
-    <a href="https://github.com/yourname">GitHub</a>
-    <a href="https://twitch.tv/yourname">Twitch</a>
-    <a href="https://discord.gg/xxx">Discord</a>
-  </div>
-</body>
-</html>
+<body><canvas width="811" height="641" style="position: fixed; top: 0px; left: 0px; width: 100%; height: 100%; z-index: -1; pointer-events: none;"></canvas>
+    <div class="background-overlay"></div>
+
+    <div class="container">
+        <!-- Social Icons Top -->
+        <div class="social-icons-top">
+            <a href="https://t.me/ournightsinberlin" target="_blank" class="social-icon" aria-label="Telegram">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"></path>
+                </svg>
+            </a>
+            <a href="https://steamcommunity.com/profiles/76561199690340914/" target="_blank" class="social-icon" aria-label="Steam" style="">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10c-4.6 0-8.45-3.08-9.64-7.27l3.83 1.58a2.84 2.84 0 0 0 2.78 2.27c1.56 0 2.83-1.27 2.83-2.83v-.13l3.4-2.43h.08c2.08 0 3.77-1.69 3.77-3.77s-1.69-3.77-3.77-3.77-3.78 1.69-3.78 3.77v.05l-2.37 3.46-.16-.01c-.59 0-1.14.18-1.59.49L2 11.2C2.43 6.05 6.73 2 12 2M8.28 17.17c.8.33 1.72-.04 2.05-.84.33-.8-.05-1.71-.83-2.04l-1.28-.53c.49-.18 1.04-.19 1.56.03.53.21.94.62 1.15 1.15.22.52.22 1.10 1.62-.43 1.08-1.7 1.6-2.78 1.15l1.13.46M15.99 7.5c1.39 0 2.52 1.13 2.52 2.52s-1.13 2.52-2.52 2.52-2.52-1.13-2.52-2.52 1.13-2.52 2.52-2.52m0 .63c-1.04 0-1.89.85-1.89 1.89s.85 1.89 1.89 1.89 1.89-.85 1.89-1.89-.85-1.89-1.89-1.89z"></path>
+                </svg>
+            </a>
+            <a href="https://tiktok.com/@vrutalcutss" target="_blank" class="social-icon" aria-label="TikTok" style="">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.10-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.40-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"></path>
+                </svg>
+            </a>
+        </div>
+
+        <!-- Profile Section -->
+        <div class="profile-section">
+            <div class="profile-image">
+                <img src="https://cdn.bio.link/uploads/backgrounds/2025-02-17/aNJuA0dIU1T9ghPxB1F78B70C1B5B4A7.gif" alt="Profile">
+            </div>
+            <h1 class="profile-name">vrutalcuts?</h1>
+            <p class="profile-bio">Heart cold, but my mind too loud<br>Lost myself in the faceless crowd  <br>Say I’m good, yeah, I say it proud  <br>But the silence screams when no one’s around<br>
+        </div>
+
+        <!-- Links Section -->
+        <div class="links-section">
+            <a href="https://steamcommunity.com/profiles/76561199690340914/" target="_blank" class="link-card">
+                <img src="https://cdn.bio.link/uploads/thumbnails/2025-02-17/KD7k2ZC6NNyZjugJA08AD2FA2CAA3E2E.gif" alt="Steam" class="link-icon">
+                <span class="link-text">Steam</span>
+            </a>
+
+            <a href="https://github.com/vrutalcuts" target="_blank" class="link-card">
+                <img src="https://cdn.bio.link/uploads/thumbnails/2025-02-17/xVQt9zKQbOIm6h1w8E7D980B672DDF1B.gif" alt="Github" class="link-icon">
+                <span class="link-text">Github</span>
+            </a>
+
+            <a href="https://t.me/ournightsinberlin" target="_blank" class="link-card">
+                <img src="https://cdn.bio.link/uploads/thumbnails/2025-02-17/nnTDxj5SVAY7Bo4E9D0A32C5604C427F.gif" alt="Telegram" class="link-icon">
+                <span class="link-text">Telegram</span>
+            </a>
+        </div>
+    </div>
+
+    <script src="script.js"></script><div class="custom-cursor" style="left: 810px; top: 373px;"></div><div class="cursor-trail" style="left: 810px; top: 373px;"></div>
+
+
+</body></html>
