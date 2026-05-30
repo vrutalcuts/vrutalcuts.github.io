@@ -28,7 +28,7 @@ body {
   color: var(--text);
   background:
     linear-gradient(rgba(175, 217, 232, 0.42), rgba(198, 226, 236, 0.58)),
-    url("assets/lofi-city.svg") center / cover fixed;
+    url("https://i.postimg.cc/zBNh3xrN/lofi-city.jpg") center / cover fixed;
   overflow-x: hidden;
   cursor: none;
 }
