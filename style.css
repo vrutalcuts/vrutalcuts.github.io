@@ -292,14 +292,14 @@ body {
 
 .profile-bio {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem;
-    font-style: italic;
+    font-size: 1.05rem;
+    font-style: normal;
     color: var(--text-secondary);
-    line-height: 2;
-    max-width: 450px;
+    line-height: 2.05;
+    max-width: 520px;
     margin: var(--spacing-lg) auto 0;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
-    letter-spacing: 0.5px;
+    letter-spacing: 1.3px;
 }
 
 /* ===== LINKS SECTION ===== */
