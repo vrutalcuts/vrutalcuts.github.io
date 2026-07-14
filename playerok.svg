@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-label="Playerok">
+  <defs>
+    <linearGradient id="poster" x1="18" y1="11" x2="75" y2="84" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f5f5f5"/>
+      <stop offset="0.18" stop-color="#474747"/>
+      <stop offset="0.52" stop-color="#d9d9d9"/>
+      <stop offset="1" stop-color="#050505"/>
+    </linearGradient>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" seed="44"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="table" tableValues="0 0.25"/>
+      </feComponentTransfer>
+      <feBlend mode="overlay" in2="SourceGraphic"/>
+    </filter>
+    <filter id="drop">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.9"/>
+    </filter>
+  </defs>
+  <rect width="96" height="96" fill="#050505"/>
+  <rect x="5" y="5" width="86" height="86" rx="8" fill="#151515" stroke="#4b4b4b" stroke-width="2"/>
+  <g filter="url(#grain)">
+    <path d="M20 16h38c12 0 22 9 22 22 0 14-10 23-24 23H43v19H20Z" fill="url(#poster)"/>
+    <path d="M37 31h18c5 0 9 4 9 9 0 6-4 10-10 10H37Z" fill="#070707" opacity="0.55"/>
+    <path d="M20 16h38c12 0 22 9 22 22 0 14-10 23-24 23H43v19H20Z" fill="none" stroke="#f2f2f2" stroke-width="2" opacity="0.76"/>
+  </g>
+  <g filter="url(#drop)" opacity="0.58">
+    <path d="M18 80c8-7 20-11 35-10 10 1 19-1 27-6" fill="none" stroke="#fff" stroke-width="1.1"/>
+    <path d="M22 20c10 5 20 5 31 1 9-3 18-3 25 1" fill="none" stroke="#fff" stroke-width="0.9"/>
+  </g>
+</svg>

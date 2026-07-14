@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-label="Roblox">
+  <defs>
+    <linearGradient id="plate" x1="14" y1="8" x2="82" y2="88" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f7f7f7"/>
+      <stop offset="0.24" stop-color="#111"/>
+      <stop offset="0.58" stop-color="#d8d8d8"/>
+      <stop offset="1" stop-color="#050505"/>
+    </linearGradient>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.82" numOctaves="3" seed="12"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="table" tableValues="0 0.28"/>
+      </feComponentTransfer>
+      <feBlend mode="screen" in2="SourceGraphic"/>
+    </filter>
+    <filter id="ink">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.9"/>
+    </filter>
+  </defs>
+  <rect width="96" height="96" fill="#050505"/>
+  <rect x="5" y="5" width="86" height="86" rx="8" fill="#151515" stroke="#4b4b4b" stroke-width="2"/>
+  <g filter="url(#grain)">
+    <path d="M16 24 70 12 84 70 28 84Z" fill="url(#plate)"/>
+    <path d="M28 34 60 27 68 60 36 68Z" fill="#050505" opacity="0.42"/>
+    <rect x="42" y="40" width="14" height="14" transform="rotate(-13 49 47)" fill="#f2f2f2"/>
+    <path d="M17 24 70 12 84 70 28 84Z" fill="none" stroke="#f5f5f5" stroke-width="2" opacity="0.75"/>
+  </g>
+  <g filter="url(#ink)" opacity="0.55">
+    <path d="M12 76c12-6 25-8 39-6 12 2 21 1 32-5" fill="none" stroke="#fff" stroke-width="1.2"/>
+    <path d="M13 20c15 5 24 4 35-2 10-5 20-6 31-2" fill="none" stroke="#fff" stroke-width="0.8"/>
+  </g>
+</svg>
