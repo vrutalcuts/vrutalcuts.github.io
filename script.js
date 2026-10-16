@@ -117,95 +117,64 @@ function animate() {
 animate();
 
 // ===== CUSTOM CURSOR =====
-const cursor = document.createElement('div');
-cursor.className = 'custom-cursor';
-document.body.appendChild(cursor);
+const supportsCustomCursor = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
-const cursorTrail = document.createElement('div');
-cursorTrail.className = 'cursor-trail';
-document.body.appendChild(cursorTrail);
+if (supportsCustomCursor) {
+    const cursor = document.createElement('div');
+    cursor.className = 'custom-cursor';
+    document.body.appendChild(cursor);
 
-// Add cursor styles
-const cursorStyles = document.createElement('style');
-cursorStyles.textContent = `
-    .custom-cursor {
-        width: 12px;
-        height: 12px;
-        border: 2px solid rgba(255, 255, 255, 0.9);
-        border-radius: 50%;
-        position: fixed;
-        pointer-events: none;
-        z-index: 9999;
-        transform: translate(-50%, -50%);
-        mix-blend-mode: difference;
-        background: rgba(255, 255, 255, 0.1);
-        transition: opacity 0.2s ease, transform 0.2s ease;
-    }
-    
-    .cursor-trail {
-        width: 40px;
-        height: 40px;
-        border: 2px solid rgba(255, 255, 255, 0.4);
-        border-radius: 50%;
-        position: fixed;
-        pointer-events: none;
-        z-index: 9998;
-        transform: translate(-50%, -50%);
-        mix-blend-mode: difference;
-        transition: opacity 0.2s ease, transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
-    }
-    
-    body {
-        cursor: none;
-    }
-    
-    /* Hide custom cursor (dot) when hovering interactive elements */
-    .custom-cursor.hidden {
-        opacity: 0;
-    }
-    
-    /* Ring (trail) stays visible but scales up */
-    .cursor-trail.hover {
-        transform: translate(-50%, -50%) scale(1.5);
-        border-color: rgba(255, 255, 255, 0.8);
-        background: rgba(255, 255, 255, 0.05);
-    }
-`;
-document.head.appendChild(cursorStyles);
+    const cursorTrail = document.createElement('div');
+    cursorTrail.className = 'cursor-trail';
+    document.body.appendChild(cursorTrail);
 
-let cursorX = 0, cursorY = 0;
-let trailX = 0, trailY = 0;
+    let cursorX = null;
+    let cursorY = null;
+    let trailX = 0;
+    let trailY = 0;
 
-document.addEventListener('mousemove', (e) => {
-    cursorX = e.clientX;
-    cursorY = e.clientY;
+    document.addEventListener('mousemove', (event) => {
+        cursorX = event.clientX;
+        cursorY = event.clientY;
 
-    cursor.style.left = cursorX + 'px';
-    cursor.style.top = cursorY + 'px';
-});
+        if (!document.body.classList.contains('custom-cursor-active')) {
+            trailX = cursorX;
+            trailY = cursorY;
+            document.body.classList.add('custom-cursor-active');
+        }
 
-function animateTrail() {
-    trailX += (cursorX - trailX) * 0.3;
-    trailY += (cursorY - trailY) * 0.3;
-
-    cursorTrail.style.left = trailX + 'px';
-    cursorTrail.style.top = trailY + 'px';
-
-    requestAnimationFrame(animateTrail);
-}
-animateTrail();
-
-// Cursor hover effects
-const interactiveElements = document.querySelectorAll('a, button, .link-card, .social-icon, .cta-button');
-interactiveElements.forEach(el => {
-    el.addEventListener('mouseenter', () => {
-        // Do NOT hide the dot, just scale the ring
-        cursorTrail.classList.add('hover');
+        cursor.style.left = `${cursorX}px`;
+        cursor.style.top = `${cursorY}px`;
     });
-    el.addEventListener('mouseleave', () => {
+
+    function hideCustomCursor() {
+        document.body.classList.remove('custom-cursor-active');
         cursorTrail.classList.remove('hover');
+        cursorX = null;
+        cursorY = null;
+    }
+
+    document.addEventListener('mouseleave', hideCustomCursor);
+    window.addEventListener('blur', hideCustomCursor);
+
+    function animateTrail() {
+        if (cursorX !== null && cursorY !== null) {
+            trailX += (cursorX - trailX) * 0.3;
+            trailY += (cursorY - trailY) * 0.3;
+            cursorTrail.style.left = `${trailX}px`;
+            cursorTrail.style.top = `${trailY}px`;
+        }
+
+        requestAnimationFrame(animateTrail);
+    }
+    animateTrail();
+
+    const interactiveElements = document.querySelectorAll('a, button, .link-card, .social-icon, .cta-button');
+    interactiveElements.forEach((element) => {
+        element.addEventListener('mouseenter', () => cursorTrail.classList.add('hover'));
+        element.addEventListener('mouseleave', () => cursorTrail.classList.remove('hover'));
     });
-});
+}
 
 // ===== GLITCH EFFECT FOR TITLE =====
 const profileName = document.querySelector('.profile-name');
@@ -283,4 +252,3 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
-
