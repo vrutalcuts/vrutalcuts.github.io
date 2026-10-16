@@ -10,52 +10,9 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;900&amp;family=Crimson+Pro:wght@300;400;500;600&amp;family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-<style>
-    .custom-cursor {
-        width: 12px;
-        height: 12px;
-        border: 2px solid rgba(255, 255, 255, 0.9);
-        border-radius: 50%;
-        position: fixed;
-        pointer-events: none;
-        z-index: 9999;
-        transform: translate(-50%, -50%);
-        mix-blend-mode: difference;
-        background: rgba(255, 255, 255, 0.1);
-        transition: opacity 0.2s ease, transform 0.2s ease;
-    }
-    
-    .cursor-trail {
-        width: 40px;
-        height: 40px;
-        border: 2px solid rgba(255, 255, 255, 0.4);
-        border-radius: 50%;
-        position: fixed;
-        pointer-events: none;
-        z-index: 9998;
-        transform: translate(-50%, -50%);
-        mix-blend-mode: difference;
-        transition: opacity 0.2s ease, transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
-    }
-    
-    body {
-        cursor: none;
-    }
-    
-    /* Hide custom cursor (dot) when hovering interactive elements */
-    .custom-cursor.hidden {
-        opacity: 0;
-    }
-    
-    /* Ring (trail) stays visible but scales up */
-    .cursor-trail.hover {
-        transform: translate(-50%, -50%) scale(1.5);
-        border-color: rgba(255, 255, 255, 0.8);
-        background: rgba(255, 255, 255, 0.05);
-    }
-</style></head>
+</head>
 
-<body><canvas width="811" height="641" style="position: fixed; top: 0px; left: 0px; width: 100%; height: 100%; z-index: -1; pointer-events: none;"></canvas>
+<body>
     <div class="background-overlay"></div>
 
     <div class="container">
@@ -84,29 +41,60 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
                 <img src="https://cdn.bio.link/uploads/backgrounds/2025-02-17/aNJuA0dIU1T9ghPxB1F78B70C1B5B4A7.gif" alt="Profile">
             </div>
             <h1 class="profile-name">vrutalcuts?</h1>
-            <p class="profile-bio">Heart cold, but my mind too loud<br>Lost myself in the faceless crowd  <br>Say I’m good, yeah, I say it proud  <br>But the silence screams when no one’s around<br>
+            <p class="profile-bio quote-lines" lang="ja">
+                <span class="quote-line">夜が沈み、</span>
+                <span class="quote-line">静寂が深まる。</span>
+                <span class="quote-line">誰も知らない痛みだけが、</span>
+                <span class="quote-line">胸の奥で息をしている。</span>
+                <span class="quote-line">月のない空の下、</span>
+                <span class="quote-line">ほどけた記憶が揺れて、</span>
+                <span class="quote-line">消えない想いは、</span>
+                <span class="quote-line">まだここにいる。</span>
+            </p>
         </div>
 
         <!-- Links Section -->
         <div class="links-section">
-            <a href="https://steamcommunity.com/profiles/76561199690340914/" target="_blank" class="link-card">
+            <a href="https://steamcommunity.com/profiles/76561199690340914/" target="_blank" rel="noopener noreferrer" class="link-card">
                 <img src="https://cdn.bio.link/uploads/thumbnails/2025-02-17/KD7k2ZC6NNyZjugJA08AD2FA2CAA3E2E.gif" alt="Steam" class="link-icon">
                 <span class="link-text">Steam</span>
             </a>
 
-            <a href="https://github.com/vrutalcuts" target="_blank" class="link-card">
+            <a href="https://github.com/vrutalcuts" target="_blank" rel="noopener noreferrer" class="link-card">
                 <img src="https://cdn.bio.link/uploads/thumbnails/2025-02-17/xVQt9zKQbOIm6h1w8E7D980B672DDF1B.gif" alt="Github" class="link-icon">
                 <span class="link-text">Github</span>
             </a>
 
-            <a href="https://t.me/ournightsinberlin" target="_blank" class="link-card">
+            <a href="https://t.me/ournightsinberlin" target="_blank" rel="noopener noreferrer" class="link-card">
                 <img src="https://cdn.bio.link/uploads/thumbnails/2025-02-17/nnTDxj5SVAY7Bo4E9D0A32C5604C427F.gif" alt="Telegram" class="link-icon">
                 <span class="link-text">Telegram</span>
+            </a>
+
+            <a href="https://www.pinterest.com/" target="_blank" rel="noopener noreferrer" class="link-card">
+                <img src="assets/pinterest-icon.svg" alt="Pinterest" class="link-icon">
+                <span class="link-text">Pinterest</span>
+            </a>
+
+            <a href="https://open.spotify.com/playlist/7KP5gLIVtYS4zptFEAOHic?si=KHYqBQh3RACoISOzCXbl9g&amp;utm_source=copy-link&amp;pi=Dw0lwSotSoKX0" target="_blank" rel="noopener noreferrer" class="link-card">
+                <img src="assets/spotify-icon.svg" alt="Spotify" class="link-icon">
+                <span class="link-text">Spotify</span>
+            </a>
+
+            <a href="https://www.roblox.com/users/1282887920/profile" target="_blank" rel="noopener noreferrer" class="link-card">
+                <img src="assets/roblox-icon.gif" alt="Roblox" class="link-icon">
+                <span class="link-text">Roblox</span>
+            </a>
+
+            <a href="https://playerok.com/profile/screamword/products" target="_blank" rel="noopener noreferrer" class="link-card">
+                <img src="assets/playerok-icon.svg" alt="Playerok — PL" class="link-icon">
+                <span class="link-text">Playerok</span>
             </a>
         </div>
     </div>
 
-    <script src="script.js"></script><div class="custom-cursor" style="left: 810px; top: 373px;"></div><div class="cursor-trail" style="left: 810px; top: 373px;"></div>
+    <script src="script.js"></script>
 
 
 </body></html>
+
+
