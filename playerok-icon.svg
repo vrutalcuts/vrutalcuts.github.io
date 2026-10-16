@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Playerok PL">
+ <defs><radialGradient id="glass" cx="35%" cy="25%" r="90%"><stop stop-color="#383838"/><stop offset="1" stop-color="#090909"/></radialGradient><filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+ <rect x="3" y="3" width="122" height="122" rx="13" fill="url(#glass)" stroke="#d5d5d5" stroke-opacity=".5" stroke-width="2"/>
+ <rect x="9" y="9" width="110" height="110" rx="9" fill="none" stroke="#fff" stroke-opacity=".12"><animate attributeName="stroke-opacity" values=".08;.25;.08" dur="2.6s" repeatCount="indefinite"/></rect>
+ <g filter="url(#glow)" fill="#f1f1f1" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="bold"><text x="64" y="79" font-size="48" letter-spacing="-7">PL<animate attributeName="opacity" values=".8;1;.8" dur="2.6s" repeatCount="indefinite"/><animateTransform attributeName="transform" type="translate" values="0 0;0 -2;0 0" dur="2.6s" repeatCount="indefinite"/></text></g>
+ <path d="M31 96h66" stroke="#ddd" stroke-opacity=".25" stroke-width="1"><animate attributeName="stroke-opacity" values=".15;.45;.15" dur="2.6s" repeatCount="indefinite"/></path>
+ <circle cx="31" cy="96" r="2" fill="#fff"><animate attributeName="cx" values="31;97;31" dur="2.6s" repeatCount="indefinite"/></circle>
+</svg>
